@@ -41,18 +41,52 @@ class DoublyLinkedList:
             self.head = newNode
             self.tail = newNode
         else:
-            newNode.next = self.tail
-            self.tail.prev = newNode
+            newNode.prev = self.tail
+            self.head.next = newNode
             self.tail = newNode
         
 
 
-    # def addAtIndex(self, data, index):
+    def addAtIndex(self, data, index):
+        newNode = Node(data)
+
+        if (index < 1):
+            print('Invalid Index')
+        elif (index == 1):
+            newNode.next = self.head
+            self.head = newNode
+        else:
+            temp = self.head
+            for i in range(1, index-1):
+                if(temp != None):
+                    temp = temp.next
+        
+            if(temp != None):
+                newNode.next = temp.next
+                temp.next = newNode
+            else:
+                print('Previous node is null')
+
+        
 
 
-    # def indexOf(self, data):
-    
-    
+    def indexOf(self, data):
+        temp = self.head
+        found = 0
+        i = 0
+        if(temp != 0):
+            while (temp != None):
+                i += 1
+                if(temp.data == data):
+                    found += 1
+                    break
+                temp = temp.next
+            if (found == 1):
+                print(data, 'is at index', i)
+            else:
+                print(data, 'is not in the list.')
+        else:
+            print('List is empty.')
 
 
     # def add(self, data) -> None:
@@ -133,4 +167,12 @@ class DoublyLinkedList:
 
 
 
-print(DoublyLinkedList.addFirst('May'))
+doubleLink = DoublyLinkedList()
+doubleLink.addFirst('May')
+doubleLink.addLast('You')
+doubleLink.addAtIndex('The', 1)
+doubleLink.addAtIndex('Force', 2)
+doubleLink.addAtIndex('Be', 3)
+doubleLink.addAtIndex('With', 4)
+doubleLink.indexOf('You')
+print(doubleLink)
