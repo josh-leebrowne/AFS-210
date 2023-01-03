@@ -21,7 +21,7 @@ class Stack:
 
 class Queue:
     def __init__(self):
-        self.dataQueue = deque()
+        self.dataQueue = deque([])
 
     def enqueue(self, data):
         self.dataQueue.append(data)
@@ -43,21 +43,19 @@ class Queue:
 
 
 
-
 def isPalindrome(x):
-    return x[::-1]
+    True if x == x[::-1] else False
 
-
-stack = Stack()
-stack.pushData('racecar')
-stack.pushData('noon')
-stack.pushData('python')
-stack.pushData('madam')
-print(stack.popData())
-print(stack.size())
-print(stack.isEmpty())
-print(stack.peek())
-print(stack.dataStack)
+# stack = Stack()
+# stack.pushData('racecar')
+# stack.pushData('noon')
+# stack.pushData('python')
+# stack.pushData('madam')
+# print(stack.popData())
+# print(stack.size())
+# print(stack.isEmpty())
+# print(stack.peek())
+# print(stack.dataStack)
 
 queue = Queue()
 queue.enqueue('racecar')

@@ -42,7 +42,7 @@ class DoublyLinkedList:
             self.tail = newNode
         else:
             newNode.prev = self.tail
-            self.head.next = newNode
+            self.tail.next = newNode
             self.tail = newNode
         
 
@@ -170,9 +170,9 @@ class DoublyLinkedList:
 doubleLink = DoublyLinkedList()
 doubleLink.addFirst('May')
 doubleLink.addLast('You')
-doubleLink.addAtIndex('The', 1)
-doubleLink.addAtIndex('Force', 2)
-doubleLink.addAtIndex('Be', 3)
-doubleLink.addAtIndex('With', 4)
-doubleLink.indexOf('You')
+doubleLink.addAtIndex('The', 2)
+doubleLink.addAtIndex('Force', 3)
+doubleLink.addAtIndex('Be', 4)
+doubleLink.addAtIndex('With', 5)
+doubleLink.indexOf('May')
 print(doubleLink)
