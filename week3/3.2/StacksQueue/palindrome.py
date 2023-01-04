@@ -1,4 +1,5 @@
 from collections import deque
+from queue import Queue
 
 class Stack:
     def __init__(self):
@@ -37,14 +38,16 @@ class Queue:
     
     def size(self):
         return len(self.dataQueue)
+    
+    def queuePalindrome(self):
+        for x in self:
+            True if x == x[::-1] else False
 
     def __str__(self):
         return str(self.dataQueue)
 
 
 
-def isPalindrome(x):
-    True if x == x[::-1] else False
 
 # stack = Stack()
 # stack.pushData('racecar')
@@ -66,4 +69,3 @@ print(queue.size())
 print(queue.dequeue())
 print(queue.peek())
 print(queue.isEmpty())
-
