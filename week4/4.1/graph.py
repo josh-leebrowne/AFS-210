@@ -43,25 +43,17 @@ def breadth_first_search(graph, start, goal):
     # in case there's no path between the 2 nodes
     return "Route Not Possible"
 
-graphTwo = [
-    ('A','B',2),
-    ('A','C',1),
-    ('A','F',20),
-    ('A','E',9),
-    ('A','D',3),
-    ('B','C',4),
-    ('B','E',3),
-    ('C','D',8),
-    ('D','E',7),
-    ('E','F',5),
-    ('F','G',2),
-    ('F','H',2),
-    ('F','C',2),
-    ('G','F',1),
-    ('G','H',6),
-    ('H','G',8),
-    ('H','F',9)
-]
+graphTwo = {
+"A": {"B": 2, "C": 1, "D": 3, "E": 9, "F": 20},
+"B": {"C": 4, "E": 3},
+"C": {"D": 8},
+"D": {"E": 7},
+"E": {"F": 5},
+"F": {"G": 2, "H": 2},
+"G": {"F": 1, "H": 6},
+"H": {"G": 8, "F": 9},
+}
+
 def dijsktra(graph, initial, end):
     # shortest paths is a dict of nodes
     # whose value is a tuple of (previous node, weight)
@@ -90,13 +82,14 @@ if node not in visited}
 [1])
     # Work back through destinations in shortest path
     path = []
+    pathCost = shortest_paths[current_node][1]
     while current_node is not None:
         path.append(current_node)
         next_node = shortest_paths[current_node][0]
         current_node = next_node
     # Reverse path
     path = path[::-1]
-    return path
+    return path, pathCost
 
 print(breadth_first_search(graph,'A','H'))
 print(dijsktra(graphTwo,'A','H'))
