@@ -22,7 +22,7 @@ class Stack:
 
 class Queue:
     def __init__(self):
-        self.dataQueue = deque([])
+        self.dataQueue = deque()
 
     def enqueue(self, data):
         self.dataQueue.append(data)
@@ -38,27 +38,26 @@ class Queue:
     
     def size(self):
         return len(self.dataQueue)
-    
-    def queuePalindrome(self):
-        for x in self:
-            True if x == x[::-1] else False
 
     def __str__(self):
         return str(self.dataQueue)
 
 
+def isPalindrome(self):
+        for x in self:
+            True if x == x[::-1] else False
 
-
-# stack = Stack()
-# stack.pushData('racecar')
-# stack.pushData('noon')
-# stack.pushData('python')
-# stack.pushData('madam')
-# print(stack.popData())
-# print(stack.size())
-# print(stack.isEmpty())
-# print(stack.peek())
-# print(stack.dataStack)
+stack = Stack()
+stack.pushData('racecar')
+stack.pushData('noon')
+stack.pushData('python')
+stack.pushData('madam')
+print(stack.popData())
+print(stack.size())
+print(stack.isEmpty())
+print(stack.peek())
+print(stack.dataStack)
+print(isPalindrome(stack.dataStack))
 
 queue = Queue()
 queue.enqueue('racecar')
@@ -69,3 +68,4 @@ print(queue.size())
 print(queue.dequeue())
 print(queue.peek())
 print(queue.isEmpty())
+print(isPalindrome(queue))
