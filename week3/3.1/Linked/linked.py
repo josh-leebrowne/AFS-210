@@ -48,24 +48,47 @@ class DoublyLinkedList:
 
 
     def addAtIndex(self, data, index):
-        newNode = Node(data)
-
-        if (index < 1):
-            print('Invalid Index')
-        elif (index == 1):
-            newNode.next = self.head
-            self.head = newNode
-        else:
-            temp = self.head
-            for i in range(1, index-1):
-                if(temp != None):
-                    temp = temp.next
         
-            if(temp != None):
-                newNode.next = temp.next
-                temp.next = newNode
-            else:
-                print('Previous node is null')
+        if (index == 0):
+            self.addFirst(data)
+            return
+
+        if (index == self.count):
+            self.addLast(data)
+            return
+
+        if (index > self.count):
+            return
+
+        curr = self.head
+        prev = self.head
+        for n in range(index):
+            prev = curr
+            curr = curr.next
+
+        newNode = Node(data)
+        prev.next = newNode
+        newNode = prev
+        newNode.next = curr
+        curr.prev = newNode
+        self.count += 1
+
+
+
+        # elif (index == 1):
+        #     newNode.next = self.head
+        #     self.head = newNode
+        # else:
+        #     temp = self.head
+        #     for i in range(index):
+        #         if(temp != None):
+        #             temp = temp.next
+        
+        #     if(temp != None):
+        #         newNode.next = temp.next
+        #         temp.next = newNode
+        #     else:
+        #         print('Previous node is null')
 
         
 
@@ -76,22 +99,21 @@ class DoublyLinkedList:
         i = 0
         if(temp != 0):
             while (temp != None):
-                i += 1
                 if(temp.data == data):
                     found += 1
                     break
+                i += 1
                 temp = temp.next
             if (found == 1):
-                print(data, 'is at index', i)
+                return i
             else:
-                print(data, 'is not in the list.')
+                return -1
         else:
-            print('List is empty.')
+            return -1
 
 
-    # def add(self, data) -> None:
-    
-    #     self.addLast(data)
+    def add(self, data) -> None:
+        self.addLast(data)
 
 
 
@@ -169,10 +191,16 @@ class DoublyLinkedList:
 
 doubleLink = DoublyLinkedList()
 doubleLink.addFirst('May')
-doubleLink.addLast('You')
-doubleLink.addAtIndex('The', 2)
-doubleLink.addAtIndex('Force', 3)
-doubleLink.addAtIndex('Be', 4)
-doubleLink.addAtIndex('With', 5)
-doubleLink.indexOf('May')
+doubleLink.add('The')
+doubleLink.add('Force')
+doubleLink.add('Be')
+doubleLink.add('With')
+doubleLink.add('You')
+doubleLink.add('!')
+print(doubleLink.indexOf('With'))
+
+insertIndex = doubleLink.indexOf('You')
+doubleLink.deleteAtIndex(insertIndex)
+doubleLink.addAtIndex('Us',insertIndex)
+doubleLink.addAtIndex('All', doubleLink.indexOf('!'))
 print(doubleLink)

@@ -1,14 +1,14 @@
-from collections import deque
 from queue import Queue
+
 
 class Stack:
     def __init__(self):
         self.dataStack = []
 
-    def pushData(self, data):
+    def push(self, data):
         self.dataStack.append(data)
     
-    def popData(self):
+    def pop(self):
         return self.dataStack.pop()
     
     def size(self):
@@ -19,19 +19,22 @@ class Stack:
     
     def peek(self):
         return self.dataStack[-1]
+    
+    def __str__(self):
+        return str(self.dataStack)
 
 class Queue:
     def __init__(self):
-        self.dataQueue = deque()
+        self.dataQueue = []
 
     def enqueue(self, data):
-        self.dataQueue.append(data)
+        self.dataQueue.insert(0,data)
     
     def dequeue(self):
-        return self.dataQueue.popleft()
+        return self.dataQueue.pop()
     
     def peek(self):
-        return self.dataQueue[0]
+        return self.dataQueue[-1]
     
     def isEmpty(self):
         return len(self.dataQueue) == 0
@@ -43,29 +46,22 @@ class Queue:
         return str(self.dataQueue)
 
 
-def isPalindrome(self):
-        for x in self:
-            True if x == x[::-1] else False
+def isPalindrome(str):
+        stack = Stack()
+        queue = Queue()
 
-stack = Stack()
-stack.pushData('racecar')
-stack.pushData('noon')
-stack.pushData('python')
-stack.pushData('madam')
-print(stack.popData())
-print(stack.size())
-print(stack.isEmpty())
-print(stack.peek())
-print(stack.dataStack)
-print(isPalindrome(stack.dataStack))
+        for e in str:
+            stack.push(e)
+            queue.enqueue(e)
 
-queue = Queue()
-queue.enqueue('racecar')
-queue.enqueue('noon')
-queue.enqueue('python')
-queue.enqueue('madam')
-print(queue.size())
-print(queue.dequeue())
-print(queue.peek())
-print(queue.isEmpty())
-print(isPalindrome(queue))
+        while not stack.isEmpty():
+            if stack.pop() != queue.dequeue():
+                return False
+
+        return True
+
+print(isPalindrome('racecar'))
+print(isPalindrome('noon'))
+print(isPalindrome('python'))
+print(isPalindrome('madam'))
+
