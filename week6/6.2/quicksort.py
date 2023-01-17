@@ -70,60 +70,60 @@ def quick_sort(a_list, start, end):
 def partitionStart(a_list, start, end):
     return partition(a_list, start, end)
 
-#Pivot Start
-def partition(a_list, start, end):
-    pivot = a_list[start]
+# #Pivot Start
+# def partition(a_list, start, end):
+#     pivot = a_list[start]
     
-    low = start + 1
-    high = end
-    while True:
-        while low <= high and a_list[high] >= pivot:
-            high = high - 1
-        while low <= high and a_list[low] <= pivot:
-            low = low + 1
-        if low <= high:
-            a_list[low], a_list[high] = a_list[high], a_list[low]
-        else:
-            break
-    a_list[start], a_list[high] = a_list[high], a_list[start]
-    return high
+#     low = start + 1
+#     high = end
+#     while True:
+#         while low <= high and a_list[high] >= pivot:
+#             high = high - 1
+#         while low <= high and a_list[low] <= pivot:
+#             low = low + 1
+#         if low <= high:
+#             a_list[low], a_list[high] = a_list[high], a_list[low]
+#         else:
+#             break
+#     a_list[start], a_list[high] = a_list[high], a_list[start]
+#     return high
 
 
-#Pivot End
-def partition(a_list, start, end):
-    pivot = a_list[end]
+# #Pivot End
+# def partition(a_list, start, end):
+#     pivot = a_list[end]
     
-    low = start + 1
-    high = end
-    while True:
-        while low <= high and a_list[high] >= pivot:
-            high = high - 1
-        while low <= high and a_list[low] <= pivot:
-            low = low + 1
-        if low <= high:
-            a_list[low], a_list[high] = a_list[high], a_list[low]
-        else:
-            break
-    a_list[start], a_list[high] = a_list[high], a_list[start]
-    return high
+#     low = start + 1
+#     high = end
+#     while True:
+#         while low <= high and a_list[high] >= pivot:
+#             high = high - 1
+#         while low <= high and a_list[low] <= pivot:
+#             low = low + 1
+#         if low <= high:
+#             a_list[low], a_list[high] = a_list[high], a_list[low]
+#         else:
+#             break
+#     a_list[start], a_list[high] = a_list[high], a_list[start]
+#     return high
 
-#Middle Pivot
-def partition(a_list, start, end):
-    pivot = a_list[len(a_list)/2]
+# #Middle Pivot
+# def partition(a_list, start, end):
+#     pivot = a_list[len(a_list)//2]
     
-    low = start + 1
-    high = end
-    while True:
-        while low <= high and a_list[high] >= pivot:
-            high = high - 1
-        while low <= high and a_list[low] <= pivot:
-            low = low + 1
-        if low <= high:
-            a_list[low], a_list[high] = a_list[high], a_list[low]
-        else:
-            break
-    a_list[start], a_list[high] = a_list[high], a_list[start]
-    return high
+#     low = start + 1
+#     high = end
+#     while True:
+#         while low <= high and a_list[high] >= pivot:
+#             high = high - 1
+#         while low <= high and a_list[low] <= pivot:
+#             low = low + 1
+#         if low <= high:
+#             a_list[low], a_list[high] = a_list[high], a_list[low]
+#         else:
+#             break
+#     a_list[start], a_list[high] = a_list[high], a_list[start]
+#     return high
 
 #Random Pivot
 def partition(a_list, start, end):
