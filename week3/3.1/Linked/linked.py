@@ -11,6 +11,7 @@ class DoublyLinkedList:
         self.tail = None
         self.head = None
         self.count = 0
+
     def iter(self):
         # Iterate through the list.
         current = self.head
@@ -72,25 +73,6 @@ class DoublyLinkedList:
         newNode.next = curr
         curr.prev = newNode
         self.count += 1
-
-
-
-        # elif (index == 1):
-        #     newNode.next = self.head
-        #     self.head = newNode
-        # else:
-        #     temp = self.head
-        #     for i in range(index):
-        #         if(temp != None):
-        #             temp = temp.next
-        
-        #     if(temp != None):
-        #         newNode.next = temp.next
-        #         temp.next = newNode
-        #     else:
-        #         print('Previous node is null')
-
-        
 
 
     def indexOf(self, data):
