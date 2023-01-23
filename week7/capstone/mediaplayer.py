@@ -117,8 +117,8 @@ while True:
 
     #PLAY
     elif choice == 3:
-        # Play the playlist from the beginning
-        # Display song name that is currently playing
+        currentSong = playlist.peek()
+        print(f"Currently Playing \n {currentSong}", end=" " '\n')
         print("Playing....")  
     
     #SKIP
@@ -129,30 +129,30 @@ while True:
     
     #GO BACK
     elif choice == 5:
-        # temp_stack = Stack()
-        # while not playlist.isEmpty():
-        #     temp_stack.push(playlist.dequeue())
-        # while not temp_stack.isEmpty():
-        #     playlist.enqueue(temp_stack.pop())
-        # playlist.enqueue(playlist.dequeue)
-        
-        # print("Replaying....")
-        # print(playlist.peek())
-
-        # while not playlist.isEmpty():
-        #     temp_stack.push(playlist.dequeue())
-        # while not temp_stack.isEmpty():
-        #     playlist.enqueue(temp_stack.pop())
-        # playlist.enqueue(playlist.dequeue)
-        temp_deque = deque()
-        while Song():
-            temp_deque.append(playlist.dequeue())
-            temp_deque.reverse()
-        while temp_deque:
-            playlist.enqueue(temp_deque.pop())
+        temp_stack = Stack()
+        while not playlist.isEmpty():
+            temp_stack.push(playlist.dequeue())
+        while not temp_stack.isEmpty():
+            playlist.enqueue(temp_stack.pop())
         playlist.enqueue(playlist.dequeue)
+        
         print("Replaying....")
         print(playlist.peek())
+
+        while not playlist.isEmpty():
+            temp_stack.push(playlist.dequeue())
+        while not temp_stack.isEmpty():
+            playlist.enqueue(temp_stack.pop())
+        playlist.enqueue(playlist.dequeue)
+        # temp_deque = deque()
+        # while Song():
+        #     temp_deque.append(playlist.dequeue())
+        #     temp_deque.reverse()
+        # while temp_deque:
+        #     playlist.enqueue(temp_deque.pop())
+        # playlist.enqueue(playlist.dequeue)
+        # print("Replaying....")
+        # print(playlist.peek())
 
     #SHUFFLE
     elif choice == 6:
